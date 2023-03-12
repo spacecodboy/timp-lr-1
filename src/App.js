@@ -14,27 +14,29 @@ function App() {
 
   return (
     <div className="App">
-      <div className="menu">
-        <div className='menu_text'>
-          <SearchHeader />
-          <div>
-            <Input setSearch={setSearch} search={search} />
-            <Button setData={setData} search={search} />
+      <div className="App">
+        <div className="menu">
+          <div className='menu_text'>
+            <SearchHeader />
+            <div>
+              <Input setSearch={setSearch} search={search} />
+              <Button setData={setData} search={search} />
+            </div>
+
           </div>
+        </div>
+        <div className="container" >
+          {
+            data.map((e, i) =>
+              <div className='card' key={e.slug}>
+                <p className='emo'>{e.character}</p>
+                <p className='name'>{e.unicodeName}</p>
+              </div>
+            )
+          }
+
 
         </div>
-      </div>
-      <div className="container" >
-        {
-          data.map((e, i) =>
-            <div className='card' key={e.slug}>
-              <p className='emo'>{e.character}</p>
-              <p className='name'>{e.unicodeName}</p>
-            </div>
-          )
-        }
-
-
       </div>
     </div>
   );
