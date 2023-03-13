@@ -1,8 +1,10 @@
 .Inpt{
+    width: 300px;
     margin-top: 3em;
-    padding: .5em 1em;
+    padding: 5px 15px;
     border: solid 1px transparent;
     border-radius: 20px;
     box-shadow: 0 0 5px rgba(78, 78, 78, .4);
     outline: none;
+    font-size: 17px;
   }

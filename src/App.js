@@ -9,48 +9,36 @@ function App() {
   const [card, setCard] = useState(emojiList);
   const [request, setRequest] = useState('');
 
-  // useEffect(() => {
-
-  //   // fetch('https://emoji-api.com/emojis?access_key=2c079f31b6cf34d4014d34d1f0d8a507c1fc0ccf')
-  //   // .then(res => res.json())
-  //   // .then(res => setCard(res))
-  // }, [])
-
-  const handleSubmit = () => {
-    if(request !== '') {
-      fetch(`https://emoji-api.com/emojis?search=${request}&access_key=2c079f31b6cf34d4014d34d1f0d8a507c1fc0ccf`)
-      .then(res => res.json())
-      .then(res => {
-        if(res) {
-          setCard(res);
-        } else {
-          setCard([])
-        }
-      })
-    } else {
-      setCard(emojiList)
+  const filterEmoji = (searchText, listOfEmoji) => {
+    if (!searchText) {
+      return listOfEmoji;
     }
+    return listOfEmoji.filter(({unicodeName}) =>
+      unicodeName.toLowerCase().includes(searchText.toLowerCase())
+    );
   }
+
+  useEffect(() => {
+    const Debounce = setTimeout(() => {
+      const filteredEmoji = filterEmoji(request, emojiList);
+      setCard(filteredEmoji);
+    }, 300);
+
+    return () => clearTimeout(Debounce);
+  }, [request]);
+
 
   return (
     <div className="App">
-      <div className="menu">
-        <div className='menu_text'>
-          <h1>Поиск эмоджи</h1>
-          <div>
-          {/* <input type="text" placeholder="Введите слово" value={search} onChange={(e) => handleSearch(e)}/> */}
-          <Input
-            value={request}
-            type='text'
-            placeholder='Введите слово'
-            onChange={e => setRequest(e.target.value)}
-          />
-          {/* <input type="text" placeholder="Введите слово"/> */}
-          {/* <button className='search' onClick={() => handleSubmit()}>Поиск</button> */}
-          {/* <button className='search'>Поиск</button> */}
-          <Button onClick={() => handleSubmit()}>Поиск</Button>
-          </div>
-        </div>
+      <h1>Поиск эмоджи</h1>
+      <div className='search'>
+        <Input
+         value={request}
+          type='text'
+          placeholder='Введите слово'
+          onChange={e => setRequest(e.target.value)}
+        />
+        <Button onClick={() => filterEmoji}>Поиск</Button>
       </div>
       <CardList card={card}/>
     </div>

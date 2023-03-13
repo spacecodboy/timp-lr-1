@@ -5,7 +5,7 @@ const CardList = ({card}) => {
 
     if(!card.length) {
         return(
-        <h1 style={{textAlign: 'center'}}>
+        <h1 style={{textAlign: 'center', margin: '1em' }}>
         Эмоджи не найдены!
       </h1>
       )

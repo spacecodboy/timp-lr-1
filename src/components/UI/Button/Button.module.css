@@ -1,9 +1,11 @@
 .Btn{
-    all: unset;
-    margin-left: 1em;
-    padding: .3em 1em;
+    margin: 1em;
+    padding: 5px 15px;
+    font-size: 17px;
+    background: transparent;
+    border: 1px solid transparent;
+    cursor: pointer;
     background-color: white;
     box-shadow: 0 0 5px rgba(87, 87, 87, .3);
     border-radius: 20px;
-    cursor: pointer;
   }
