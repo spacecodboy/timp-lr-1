@@ -1,0 +1,9 @@
+.Btn{
+    all: unset;
+    margin-left: 1em;
+    padding: .3em 1em;
+    background-color: white;
+    box-shadow: 0 0 5px rgba(87, 87, 87, .3);
+    border-radius: 20px;
+    cursor: pointer;
+  }
