@@ -46,8 +46,8 @@ body{
   margin: 5em;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1em;
-  padding: 1em;
+  grid-template-rows: repeat(auto-fit, minmax(150px, 0.5fr));
+  gap: 1em;padding: 1em;
 }
 
 .card{

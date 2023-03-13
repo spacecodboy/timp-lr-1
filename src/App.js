@@ -3,16 +3,18 @@ import './styles/App.css';
 import Input from './components/UI/Input/Input';
 import CardList from './components/CardList';
 import Button from './components/UI/Button/Button';
+import emojiList from './sourse/emoji_list.json'; 
 
 function App() {
-  const [card, setCard] = useState([]);
+  const [card, setCard] = useState(emojiList);
   const [request, setRequest] = useState('');
 
-  useEffect(() => {
-    fetch('https://emoji-api.com/emojis?access_key=2c079f31b6cf34d4014d34d1f0d8a507c1fc0ccf')
-    .then(res => res.json())
-    .then(res => setCard(res))
-  }, [])
+  // useEffect(() => {
+
+  //   // fetch('https://emoji-api.com/emojis?access_key=2c079f31b6cf34d4014d34d1f0d8a507c1fc0ccf')
+  //   // .then(res => res.json())
+  //   // .then(res => setCard(res))
+  // }, [])
 
   const handleSubmit = () => {
     if(request !== '') {
@@ -25,6 +27,8 @@ function App() {
           setCard([])
         }
       })
+    } else {
+      setCard(emojiList)
     }
   }
 
