@@ -1,9 +1,9 @@
 import React from 'react';
 import CardItem from './CardItem';
 
-const CardList = ({card}) => {
+const CardList = ({card}) => { //контейнер со смайлами
 
-    if(!card.length) {
+    if(!card.length) { //проверка допустимого запроса
         return(
         <h1 style={{textAlign: 'center', margin: '1em' }}>
         Эмоджи не найдены!

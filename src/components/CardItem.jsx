@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CardItem = (props) => {
+const CardItem = (props) => { //элемент с описание смайла
     return (
         <div className='card'>
             <div className='image'>
