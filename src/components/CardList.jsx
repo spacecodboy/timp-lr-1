@@ -1,7 +1,8 @@
 import React from 'react';
 import CardItem from './CardItem';
+import { Reorder } from 'framer-motion';
 
-const CardList = ({card}) => { //контейнер со смайлами
+const CardList = ({card, setCard}) => { //контейнер со смайлами
 
     if(!card.length) { //проверка допустимого запроса
         return(
@@ -12,11 +13,13 @@ const CardList = ({card}) => { //контейнер со смайлами
     }
 
     return (
-        <div className='cards'>
-            {card.map((e, i) => 
-                <CardItem  key={e.slug} e={e}/>
-            )}
-        </div>
+        <Reorder.Group as="ul" axys="y" values={card} onReorder={setCard} >
+            <div className='cards'>
+                {card.map((e, i) => 
+                    <CardItem  key={e.slug} e={e}/>
+                )}
+            </div>
+        </Reorder.Group>
 
     );
 };

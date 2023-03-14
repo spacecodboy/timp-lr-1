@@ -61,7 +61,7 @@ function App() {
         />
         <Button onClick={() => filterEmoji}>Поиск</Button> 
       </div>
-      <CardList card={card} />
+      <CardList card={card} setCard={setCard} />
     </div>
   );
 }
