@@ -1,6 +1,7 @@
 import React from 'react';
 import CardItem from './CardItem';
 
+
 const CardList = ({card}) => {
 
     if(!card.length) {
@@ -17,6 +18,7 @@ const CardList = ({card}) => {
                 <CardItem  key={e.slug} e={e}/>
             )}
         </div>
+
     );
 };
 

@@ -9,21 +9,33 @@ function App() {
   const [card, setCard] = useState(emojiList);
   const [request, setRequest] = useState('');
 
+  function CopyEmojies() {
+    let cell = document.getElementsByClassName('image');
+
+    for (var i = 0; i < cell.length; i++) {
+      cell[i].addEventListener('click', cellClick);
+    }
+    function cellClick() {
+
+      navigator.clipboard.writeText(this.innerHTML);
+    }
+  }
   const filterEmoji = (searchText, listOfEmoji) => {
     if (!searchText) {
       return listOfEmoji;
     }
     return listOfEmoji.filter(({unicodeName}) =>
       unicodeName.toLowerCase().includes(searchText.toLowerCase())
+
     );
   }
-
+  
   useEffect(() => {
+    CopyEmojies();
     const Debounce = setTimeout(() => {
       const filteredEmoji = filterEmoji(request, emojiList);
       setCard(filteredEmoji);
     }, 300);
-
     return () => clearTimeout(Debounce);
   }, [request]);
 
@@ -40,7 +52,11 @@ function App() {
         />
         <Button onClick={() => filterEmoji}>Поиск</Button>
       </div>
-      <CardList card={card}/>
+
+      <CardList card={card} />
+      <CopyEmojies />
+
+
     </div>
   );
 }
