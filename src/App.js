@@ -4,10 +4,13 @@ import Input from './components/UI/Input/Input';
 import CardList from './components/CardList';
 import Button from './components/UI/Button/Button';
 import emojiList from './sourse/emoji_list.json'; 
+import MarketingImage from './components/MarketingImage.jsx';
+
 
 function App() {
   const [card, setCard] = useState(emojiList); //хуки состояния
   const [request, setRequest] = useState('');
+
 
   function CopyEmojies() { //копирование эмоджи при нажатии
     let cell = document.getElementsByClassName('image');
@@ -31,7 +34,6 @@ function App() {
     );
   }
   
-  
   useEffect(() => {
     CopyEmojies();
     CopyEmojies();
@@ -45,7 +47,11 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Поиск эмоджи</h1>
+      <MarketingImage className='marketing'/>
+      <div className="title">
+        <h1>Поиск эмоджи</h1>
+      </div>
+      
       <div className='search'>
         <Input 
          value={request} //поле ввода
