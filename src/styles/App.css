@@ -18,8 +18,11 @@
 .title{
   background-color: white;
   position: fixed;
-  display: flex
+  padding: 1em;
+  margin: 1em;
+  border-radius: 20px;
 }
+
 .App h1{
   font-size: 3em;
   letter-spacing: 3px;

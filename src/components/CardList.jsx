@@ -13,7 +13,7 @@ const CardList = ({card, setCard}) => { //контейнер со смайлам
     }
 
     return (
-        <Reorder.Group as="ul" axys="y" values={card} onReorder={setCard} >
+        <Reorder.Group as="span" axys="x" values={card} onReorder={setCard} >
             <div className='cards'>
                 {card.map((e, i) => 
                     <CardItem  key={e.slug} e={e}/>
