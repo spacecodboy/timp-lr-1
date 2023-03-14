@@ -27,10 +27,13 @@ function App() {
     return listOfEmoji.filter(({unicodeName}) =>
       unicodeName.toLowerCase().includes(searchText.toLowerCase())
 
+
     );
   }
   
+  
   useEffect(() => {
+    CopyEmojies();
     CopyEmojies();
     const Debounce = setTimeout(() => {
       const filteredEmoji = filterEmoji(request, emojiList);

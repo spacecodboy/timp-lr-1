@@ -17,6 +17,7 @@ const CardList = ({card}) => { //контейнер со смайлами
                 <CardItem  key={e.slug} e={e}/>
             )}
         </div>
+
     );
 };
 
